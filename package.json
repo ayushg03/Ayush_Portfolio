@@ -10,12 +10,12 @@
     },
     "repository": {
       "type": "git",
-      "url": "git+https://github.com/ayushg03/portfolio.git"
+      "url": "git+https://github.com/ayushg03/Ayush_Portfolio.git"
     },
     "author": "",
     "license": "ISC",
     "bugs": {
-      "url": "https://github.com/ayushg03/portfolio/issues"
+      "url": "https://github.com/ayushg03/Ayush_Portfolio/issues"
     },
-    "homepage": "https://github.com/ayushg03/portfolio"
+    "homepage": "https://github.com/ayushg03/Ayush_Portfolio"
   }
