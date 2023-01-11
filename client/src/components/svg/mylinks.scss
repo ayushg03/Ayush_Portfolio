@@ -1,0 +1,30 @@
+@use "../../abstract/" as *;
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+
+  & a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    background-color: rgba($color-2, 0.1);
+    padding: 10px;
+    transition: $anim-all;
+
+    & svg {
+      width: 25px;
+      height: 25px;
+      fill: $color-2;
+    }
+  }
+
+  & a:hover{
+    background-color: rgba($color-2, .8);
+
+    & svg{
+      fill: $color-1;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+@use "../../abstract/" as *;
+
+.footer-bg {
+  display: flex;
+  justify-content: center;
+
+  @include set-background-color($color-2);
+
+  & .footer-section {
+    box-sizing: border-box;
+    height: 6rem;
+    width: 100%;
+    max-width: $max-w-val;
+    padding: $padding;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-1;
+    font-weight: 500;
+    font-size: .8rem;
+
+    & div { 
+
+
+      & div:nth-child(1) {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        
+        & svg{
+          margin-inline: 5px;
+        }
+      }
+
+      & div:nth-child(2){
+        & a{
+          text-decoration: none;
+          color: inherit;
+          font-weight: 900;
+        }
+      }
+    }
+  }
+}
+
+.author{
+  cursor: pointer;
+}

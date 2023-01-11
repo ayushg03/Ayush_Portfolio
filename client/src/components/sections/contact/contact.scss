@@ -1,0 +1,85 @@
+@use "../../../abstract" as *;
+
+.contact-bg {
+  @include set-background-color(transparent);
+
+  & .contact-section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 80vh;
+    max-height: 850px;
+    position: relative;
+
+    & h2 {
+      font-weight: 700;
+      text-align: center;
+
+      & span {
+        color: $color-2;
+      }
+    }
+
+    & h4 {
+      margin-top: 20px;
+      color: $color-2;
+      font-weight: 400;
+      gap: 20px;
+      display: flex;
+
+      & a {
+        & .send-email {
+          display: none;
+        }
+      }
+
+      & a:hover {
+        & span{
+          text-decoration: underline;
+        }
+        
+      }
+
+      & span {
+        cursor: pointer;
+      }
+    }
+
+    & .social-icons {
+      position: absolute;
+      bottom: 30px;
+    }
+  }
+}
+
+@media (max-width: $media-w-s) {
+  .contact-bg {
+    & .contact-section {
+      & h4 {
+        & a {
+          & span {
+            display: none;
+          }
+          & .send-email {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            background-color: $color-2;
+            color: $color-1;
+            padding: 5px 10px;
+            width: auto;
+            height: auto;
+            font-size: 1.2rem;
+            column-gap: 5px;
+          }
+        }
+        & span {
+          display: none;
+        }
+      }
+    }
+  }
+}
+

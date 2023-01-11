@@ -1,0 +1,21 @@
+//default color
+$color-0: #ffffff;
+$color-1: #222831;
+$color-2: #f49d1a;
+$color-3: #4F555F;
+$color-4: #B9B9B9;
+
+// pumpkin color
+$color-0: #f5e6c8;
+$color-1: #2b2b2b;
+$color-2: #f66e0d;
+$color-3: #313131;
+$color-4: #f5e6c8;
+
+:export {
+  color0: $color-0;
+  color1: $color-1;
+  color2: $color-2;
+  color3: $color-3;
+  color4: $color-4;
+}

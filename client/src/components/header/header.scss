@@ -1,0 +1,195 @@
+@use "../../abstract/" as *;
+
+#home {
+  position: absolute;
+  height: 0px;
+  width: 0px;
+  // top: -80px;
+  z-index: 100;
+}
+
+
+
+.header {
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+
+  transition: background-color $anim-time ease, backdrop-filter $anim-time ease,
+    top $anim-time ease;
+
+  width: 100vw;
+  height: auto;
+  z-index: 1000;
+
+  & .header-content {
+    max-width: $max-w-val;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 1.5rem $padding;
+    box-sizing: border-box;
+
+    & .logo {
+      width: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      & svg{
+        fill: $color-2;
+      }
+    }
+
+    & nav {
+      box-sizing: border-box;
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      & .toggle-menu {
+        background-color: transparent;
+        border-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        display: none;
+        margin: 0;
+
+        & svg {
+          width: 20px;
+          height: 20px;
+          color: $color-2;
+        }
+      }
+
+      & .toggle-menu[aria-expanded="true"]{
+        & svg:nth-child(1){
+          display: none;
+        }
+      }
+
+      & .toggle-menu[aria-expanded="false"]{
+        & svg:nth-child(2){
+          display: none;
+        }
+      }
+
+      & .toggle-menu:focus-visible {
+        outline: unset;
+      }
+
+      & .navigation {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row;
+        position: relative;
+        padding: 5px;
+        gap: 2rem;
+        transition: $anim-all;
+
+        & .indicator {
+          background-color: $color-2;
+          width: 0px;
+          height: 3px;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          border-radius: 20px;
+          transition: all $anim-time ease-in-out;
+          animation: indicator 1s ease-out;
+        }
+
+        @keyframes indicator {
+          0%{ opacity: 0;}
+          80%{opacity: 0;}
+          100% {opacity: 1;}
+          
+        }
+
+
+        & li {
+          & .active {
+            color: $color-2;
+          }
+
+          & a {
+            font-size: 1rem;
+            color: $color-0;
+            text-decoration: none;
+            transition: all $anim-time ease;
+
+            &:hover {
+              color: $color-2;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.with-backdrop-filter {
+  background-color: rgba($color-1, 0.5);
+  backdrop-filter: blur(5px);
+  // background-color: $color-1;
+}
+
+.default-bg-color {
+  background-color: $color-1;
+}
+
+@media (max-width: $media-w-m) {
+  .header {
+    & .header-content {
+      & nav {
+        & .toggle-menu {
+          display: block;
+        }
+
+        & .indicator {
+          display: none;
+        }
+
+        & .navigation[data-visible="false"] {
+          position: absolute;
+          top: 72px;
+          left: 0;
+          right: 0;
+          bottom: 100px;
+          background-color: $color-1;
+          justify-content: flex-start;
+          align-items: center;
+          flex-direction: column;
+          opacity: 0;
+
+          & li {
+            & a{
+              pointer-events: none;
+            }
+          }
+        }
+
+        & .navigation[data-visible="true"] {
+          padding-top: 10vh;
+          position: absolute;
+          top: 72px;
+          bottom: -100vh;
+          left: 0;
+          right: 0;
+          background-color: $color-1;
+          justify-content: flex-start;
+          align-items: center;
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}

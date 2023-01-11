@@ -1,0 +1,17 @@
+@use "../../abstract/" as *;
+
+#particles-container-top {
+  position: fixed;
+  width: 100vw;
+  height: 120%;
+  top: 0;
+  z-index: -10;
+}
+
+#particles-container-bottom {
+  position: fixed;
+  width: 100vw;
+  height: 100%;
+  top: 0;
+  z-index: -10;
+}

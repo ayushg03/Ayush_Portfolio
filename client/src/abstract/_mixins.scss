@@ -1,0 +1,15 @@
+@mixin default-box-shadow{
+  filter: drop-shadow(20px 20px 20px rgba(0, 0, 0, .3));
+}
+
+@mixin set-background-color($color-value){
+  background-color: $color-value;
+  width: 100vw;
+  height: 100%;
+}
+
+
+@mixin background-gradient-linear($color-value, $value1: 100%, $value2: 100%){
+  background: linear-gradient(360deg, rgba($color-value, 0.8) $value1, rgba(0, 0, 0, 0.2) $value2);
+  
+}

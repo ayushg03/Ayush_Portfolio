@@ -1,0 +1,335 @@
+@use "../../../abstract/" as *;
+
+.experience-bg {
+  position: relative;
+
+  @include set-background-color($color-2);
+
+  & .experience-section {
+    // padding-top: 100px;
+
+    & h2 {
+      & span {
+        color: $color-1;
+      }
+    }
+
+    & .list {
+      margin-top: 10%;
+      margin-bottom: 10%;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      height: fit-content;
+
+      & .list-item {
+        text-decoration: none;
+        list-style: none;
+        width: 100%;
+        max-width: 100%;
+        padding: 50px 0px;
+
+        // general
+        & .calendar-year {
+          color: $color-0;
+          opacity: 0.4;
+          font-weight: 900;
+          font-size: 5rem;
+        }
+
+        & .logo {
+          // border: 3px solid $color-1;
+          width: 70px;
+          height: 70px;
+          border-radius: 100%;
+          background-color: white;
+          z-index: 1;
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          & img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+
+        & .panel {
+          background-color: $color-0;
+          filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.3));
+          display: grid;
+          grid-template-areas: "RA RB";
+          padding: 10px 20px;
+          align-items: center;
+        }
+
+        & .panel:hover{
+          transform: scale(1.05);
+          cursor: default;
+        }
+
+        
+        & .line-horizontal {
+          background-color: $color-1;
+          width: 50px;
+          height: 5px;
+          transition: $anim-all;
+        }
+
+        & .descriptions {
+          width: -webkit-fill-available;
+          height: auto;
+          padding: 15px;
+          position: relative;
+          z-index: 0;
+
+          & .years,
+          .title,
+          .company-name {
+            color: $color-1;
+            margin-bottom: 5px;
+          }
+
+          & .years {
+            font-weight: 300;
+            font-size: small;
+          }
+
+          & .title {
+            font-weight: 900;
+          }
+        }
+
+        //formats
+        & .format-odd {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          // border: 1px dashed blue;
+          width: 100%;
+          padding: 20px 0px;
+          grid-template-areas: "A B";
+          margin-bottom: 100px;
+
+          & .left-content {
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 10%;
+            grid-area: A;
+          }
+
+          & .right-content {
+            grid-area: B;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            box-sizing: border-box;
+
+            & .panel {
+              order: 1;
+            }
+
+            & div{
+              order: 0;
+            }
+
+            & .logo {
+              // margin-left: -38px;
+              grid-area: RA;
+            }
+
+            & .descriptions {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              grid-area: RB;
+            }
+          }
+        }
+
+        //format right
+        & .format-even {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          // border: 1px dashed blue;
+          width: 100%;
+          padding: 20px 0px;
+          grid-template-areas: "B A";
+          margin-bottom: 100px;
+
+          & .left-content {
+            display: flex;
+            justify-content: flex-start;
+            margin-left: 10%;
+            grid-area: A;
+          }
+
+          & .right-content {
+            grid-area: B;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+
+            & .panel {
+              order: 0;
+            }
+
+            & div {
+              order: 1;
+            }
+
+            & .logo {
+              // margin-left: -38px;
+              grid-area: RB;
+            }
+
+            & .descriptions {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-end;
+              grid-area: RA;
+
+              & div:nth-child(n) {
+                text-align: end;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .line-vertical {
+      position: absolute;
+      width: 5px;
+      height: 100%;
+      background-color: $color-1;
+      z-index: 0;
+      border-radius: 5px;
+    }
+  }
+
+  & .curve {
+    bottom: -100px;
+    left: -10px;
+    right: -10px;
+    z-index: 100;
+    position: absolute;
+    transform: scaleX(-1);
+    transform: rotate(0);
+
+    & svg {
+      height: 100px;
+      width: 100%;
+      & path {
+        stroke-width: 3;
+        stroke: $color-2;
+
+        fill: $color-2;
+      }
+    }
+  }
+}
+
+@media (max-width: $media-w-l) {
+  .experience-bg {
+    & .experience-section {
+      & .list {
+        & .list-item {
+          & .logo {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $media-w-m) {
+  .experience-bg {
+    & .experience-section {
+      & .line-vertical {
+        left: 0;
+      }
+
+      & .list {
+        margin-top: 10%;
+        margin-bottom: 10%;
+
+        & .list-item {
+          padding-top: 10px;
+
+          & .descriptions {
+            padding: 5px;
+          }
+
+          & .format-odd {
+            grid-template-columns: 1fr;
+            display: flex;
+            margin-bottom: 0px;
+
+            & .left-content {
+              display: none;
+            }
+
+            & .right-content {
+              width: 100%;
+              & .panel {
+                width: 100%;
+                display: flex;
+              }
+            }
+          }
+
+          & .format-even {
+            margin-bottom: 0px;
+            display: flex;
+
+            & .left-content {
+              display: none;
+            }
+
+            & .right-content {
+              width: 100%;
+              & .panel {
+                order: 1;
+                width: 100%;
+                display: flex;
+              }
+
+              & .line-horizontal {
+                order: 0;
+              }
+
+              & .descriptions {
+                align-items: flex-start;
+
+                & div:nth-child(n) {
+                  text-align: start;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $media-w-s) {
+  .experience-bg {
+    & .experience-section {
+      & .list {
+        & .list-item {
+          & .line-horizontal {
+            width: 10px;
+          }
+        }
+      }
+    }
+  }
+}

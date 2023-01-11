@@ -1,0 +1,145 @@
+@use "../../../abstract" as *;
+
+.about-bg {
+  position: relative;
+
+  @include set-background-color($color-1);
+
+  & .about-section {
+    // padding-top: 100px;
+    padding-bottom: 120px;
+
+    & .grid1 {
+      margin-top: 100px;
+      margin-bottom: 100px;
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      column-gap: 40px;
+
+      & .left-section {
+        & p {
+          color: $color-4;
+        }
+
+        & h2 {
+          margin-bottom: 40px;
+
+          & span {
+            color: $color-2;
+          }
+        }
+
+        & p:nth-child(n) {
+          margin-top: 20px;
+        }
+      }
+
+      & .right-section {
+        padding: 0px 30px;
+        background-color: $color-1;
+        color: $color-2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        & div {
+          display: flex;
+          justify-content: center;
+          & h4 {
+            width: fit-content;
+            font-weight: 300;
+          }
+        }
+
+        & .tech-icons-grid {
+          margin-top: 20px;
+          margin-bottom: 50px;
+          display: grid;
+          grid-template-columns: repeat(1, 1fr);
+          column-gap: 30px;
+          row-gap: 40px;
+
+          & .item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            position: relative;
+            width: 100%;
+            
+
+            & .icon-label {
+              position: absolute;
+              bottom: -5px;
+              font-size: 0.8rem;
+              color: $color-0;
+            }
+
+            & svg {
+              width: 90%;
+              height: 90%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  & .curve {
+    bottom: -100px;
+    left: -10px;
+    right: -10px;
+    z-index: -1;
+    position: absolute;
+    transform: scaleX(-1);
+    transform: rotate(0);
+
+    & svg {
+      height: 100px;
+      width: 100%;
+      fill: $color-0;
+
+      & path {
+        stroke-width: 3;
+        stroke: $color-2;
+        fill: $color-1;
+      }
+    }
+  }
+}
+
+@media (max-width: $media-w-m) {
+  .about-bg {
+    & .about-section {
+      & .grid1 {
+        grid-template-columns: 1fr;
+        margin-bottom: 0;
+
+        & .right-section {
+          padding: 0;
+          margin-top: 100px;
+
+          & .tech-icons-grid{
+            margin-top: 50px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $media-w-l) and (min-width:calc($media-w-m + 0.01em)) {
+  .about-bg {
+    & .about-section {
+      padding-bottom: 0;
+      & .grid1 {
+        & .right-section {
+          padding: 0;
+          margin-top: 0;
+          justify-content: flex-start;
+        }
+      }
+    }
+  }
+}

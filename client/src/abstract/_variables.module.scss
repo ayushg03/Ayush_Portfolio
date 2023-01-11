@@ -1,0 +1,12 @@
+$max-w-val: 80rem;
+$padding: clamp(1.5rem, -1rem + 6.25vw, 3rem);
+$max-h-val: 60rem;
+$media-w-l: 64em;
+$media-w-m: 48em;
+$media-w-s: 40em;
+
+:export {
+  max_w_val: $max-w-val;
+  padding: $padding;
+  max_h_val: $max-h-val;
+}
