@@ -42,8 +42,9 @@ const Contact = () => {
             <h2>
               Let's <span>Talk</span>
             </h2>
+         
             <ContactUs/>
-          </div>
+            </div>
 
           <MyLinks />
         </section>
