@@ -64,7 +64,7 @@ const Projects = () => {
                 </a>
               }
               links={
-                <a href="https://github.com/ayushg03/portfolio" title="Github">
+                <a href="https://github.com/ayushg03/Ayush_Portfolio" title="Github">
                   <BsGithub />
                 </a>
               }
